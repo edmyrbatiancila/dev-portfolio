@@ -6,23 +6,27 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import BackToTop from './components/BsckToTop';
+import { ThemeProvider } from './contexts/ThemeProvider';
 
 function App() {
     // const [count, setCount] = useState(0)
 
     return (
-        <div className="flex flex-col min-h-screen">
-            {/* Header */}
-            <Header />
+        <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
+            <div className="min-h-screen">
+                {/* Header */}
+                <Header />
 
-            {/* Main Content */}
-            <Main />
+                {/* Main Content */}
+                <Main />
 
-            <BackToTop />
+                <BackToTop />
 
-            {/* Footer */}
-            <Footer />
-        </div>
+                {/* Footer */}
+                <Footer />
+            </div>
+        </ThemeProvider>
+        
     );
 }
 
