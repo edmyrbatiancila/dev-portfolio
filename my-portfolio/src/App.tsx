@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import BackToTop from './components/BsckToTop';
 import { ThemeProvider } from './contexts/ThemeProvider';
+import Navigation from './components/Navigation';
 
 function App() {
     // const [count, setCount] = useState(0)
@@ -14,8 +15,7 @@ function App() {
     return (
         <ThemeProvider defaultTheme="light" storageKey="portfolio-theme">
             <div className="min-h-screen">
-                {/* Header */}
-                <Header />
+                <Navigation />
 
                 {/* Main Content */}
                 <Main />
