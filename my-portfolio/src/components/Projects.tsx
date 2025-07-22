@@ -1,39 +1,34 @@
 import { projects } from "../data/dummProjectsData";
 import { motion } from "framer-motion";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 const Projects = () => {
+
+    const featuredProjects = projects.filter(project => project.featured);
+    const otherProjects = projects.filter(project => !project.featured);
+
     return (
-        <motion.section 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+        <section 
             id="projects" 
-            className="my-20"
+            className="py-20 bg-gray-50 dark:bg-gray-800"
         >
-            <h3 className="text-2xl font-semibold text-center mb-10">Projects</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-                <div
-                    key={index}
-                    className="border p-6 rounded-lg shadow hover:shadow-lg transition"
-                >
-                    <h4 className="text-xl font-bold mb-2">{project.title}</h4>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                        {project.description}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ScrollFadeIn className="text-center mb-16">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                        Featured Projects
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        Here are some of my recent projects that showcase my skills and experience 
+                        in full-stack development.
                     </p>
-                    <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline"
-                    >
-                        View Project
-                    </a>
-                </div>
-            ))}
+                </ScrollFadeIn>
+
+                {/* Featured Projects */}
+                <ScrollFadeIn direction="up" delay={0.2} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        
+                </ScrollFadeIn>
             </div>
-        </motion.section>
+        </section>
     );
 }
 

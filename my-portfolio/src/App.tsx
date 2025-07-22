@@ -12,6 +12,7 @@ function App() {
                 <Navigation />
                 <Hero />
                 <About />
+                
             </div>
         </ThemeProvider>
     );
